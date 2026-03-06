@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Studio Ghibli Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="#" onclick="showSection('home', event)">Home</a>
+    <a href="#" onclick="showSection('about', event)">About</a>
+    <a href="#" onclick="showSection('media', event)">Media</a>
+    <a href="#" onclick="showSection('contact', event)">Contact</a>
+</nav>
+
+<!-- Home Section -->
+
+<!-- Media Section (iframe) -->
+<section id="media" class="section">
+    <iframe src="media.html" width="100%" height="600" style="border:none;"></iframe>
+</section>
+<section id="home" class="active">
+    <h1>Home</h1>
+
+        <strong>This website is created to showcase the wonderful movies produced by Studio Ghibli. It allows visitors to explore different films, learn about the stories behind them, and enjoy images and videos related to these beloved animated classics. Studio Ghibli movies are known for their beautiful animation, imaginative worlds, and meaningful themes about friendship, family, and nature. Through this website, users can discover and appreciate many of the magical films created by this famous Japanese animation studio.
+
+        </p>
+    </div>
+
+    
+</section>
+
+<!-- About Section -->
+<section id="about" class="section">
+    <h1>About</h1>
+
+    <p>
+     This website is designed to present and explore the movies created by Studio Ghibli. It provides a collection of information, images, and media that highlight some of the studio’s most well-known animated films. Visitors can learn about different Studio Ghibli movies, view their posters, and watch related media. The website focuses on showcasing the creativity, storytelling, and artistic style that make Studio Ghibli films unique and loved by audiences around the world. Its purpose is to give users a simple and enjoyable way to discover and appreciate the many films produced by Studio Ghibli.
+
+    </p>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="section">
+    <h1>Contact</h1>
+
+    <form>
+        <input type="text" placeholder="Your Name" required>
+
+        <input type="email" placeholder="Your Email" required>
+
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Studio Ghibli Movies</p>
+</footer>
+
+<script>
+function showSection(id, event) {
+    event.preventDefault();
+    const sections = document.querySelectorAll("section");
+    sections.forEach(section => section.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+    window.scrollTo(0,0);
+}
+</script>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("media.html")
+    .then(response => response.text())
+    .then(data => {
+        document.getElementById("media").innerHTML = data;
+    })
+    .catch(err => console.log("Error loading media.html:", err));
+});
+</script>
+
+</body>
+</html>
